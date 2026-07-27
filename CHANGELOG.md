@@ -4,7 +4,7 @@ All notable changes to the `Blauth2024` best-known solutions (BKS) are recorded 
 
 ## 2026-07-27
 
-**Family published.** 20 instances hosted (n=10 and n=500, ten cities each) plus sha256 pins for the converter-materialized n=1000/2000 tier (berlin and london verified; the remaining pins follow as their conversions are verified).
+**Family published.** 20 instances hosted (n=10 and n=500, ten cities each) plus sha256 pins for the converter-materialized n=1000/2000 tier. Later the same day the pin table was completed: all twenty n=1000/2000 pins are published in the README, with the berlin and london pins at both sizes reproduced bit-identically by an independent conversion on a second machine.
 
 **24 BKS records at publication:**
 

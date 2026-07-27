@@ -47,11 +47,27 @@ Two converter runs produce bit-identical canonical bytes; conversion re-loads ev
 | instance | size | atf_sha256 |
 |---|---|---|
 | Blauth-berlin | 1000 | `87584665aae00049ead7e2c6cfa1cd96fc348ee4a4573ce5feb91eb69bca9bc8` |
+| Blauth-cincinnati | 1000 | `a33d787a2c64cfd6758c64265298e025c133ce75b294d2c70a17df4855cd324c` |
+| Blauth-kyiv | 1000 | `6ef5927c9ae6219601ba31b37db3d396120ca3694868c5b4f2cb9a631bb84861` |
 | Blauth-london | 1000 | `7e6a53c509f81c9c3a508ddd3f4ef41adf998b63f18be96fce9675eb2af7f530` |
+| Blauth-madrid | 1000 | `e6a218163ca52992b80c72d317c88ad8cfaaa71ef5b7067b7afb5c9ddf12b97b` |
+| Blauth-nairobi | 1000 | `6d19df18e07fee33e7240d0f523b3ed4f9963a3584b68bdbb980536b8edc5e37` |
+| Blauth-new_york | 1000 | `7fc60cd36b883953f78b2bdc889aa6b2f00be184107fd8538552aca4b14da004` |
+| Blauth-san_francisco | 1000 | `42a9d9759dfe1e980ae54695497ab4dc0f5c9944d281891a2f8c7c0be195c167` |
+| Blauth-sao_paulo | 1000 | `e6fb03915e85f3b226bba56c7912760a39bfb3c964d54f9d20655776e3ec399c` |
+| Blauth-seattle | 1000 | `d2448e0cb544a6d53ad5cea16996eeaf69a365b053e7b2a7ce13caada1c322c8` |
 | Blauth-berlin | 2000 | `7ea3fa2bc2d899982f57744b624fda9c0d5e5002ed42a74143b7fbf1fc8bb5a9` |
+| Blauth-cincinnati | 2000 | `66d02cad2b09d5b274475cfb3c35275aa126ad0df75a52fadfb0d4f8926f48fe` |
+| Blauth-kyiv | 2000 | `855687244efc58448cf540bc2a9e2ea0d49c01ebcc1b960efa44098117d37053` |
 | Blauth-london | 2000 | `3e686a2b66b12ebbbe828321c91f1da718658df532753e65dc69acaf6ddac73e` |
+| Blauth-madrid | 2000 | `1b36c82cdc29d147dc6dafc7fd28e99ae572932b7f32761237a9b2c88cfd5e05` |
+| Blauth-nairobi | 2000 | `60ce865ff70056389de235964d46dd208ca964d63ef6d8f1e0383d5c2df47d87` |
+| Blauth-new_york | 2000 | `7040ce56a475c95d2aa468ed1e27a10d6c6f8fc2a47fdb230c9a8af92ce25e5a` |
+| Blauth-san_francisco | 2000 | `21cca22b684efd686ab7b992b425c91862afee3529d5f11b1d54125cf8c8ebb9` |
+| Blauth-sao_paulo | 2000 | `6b3ca7c2e94ddcd3f9e848ec0f1e73b16258ca5e2aa00ccfa3c95a367e0af27b` |
+| Blauth-seattle | 2000 | `58ca0959e055776c7c6ea6b0b61a331aa5b75573f40a414db5a2e5ba1f4d64ff` |
 
-Pins for the remaining sixteen n=1000/2000 instances will be published as their conversions are verified; each instance's own `metadata.generator.upstream_files` block additionally pins the sha256 of the exact upstream source files.
+All twenty n=1000/2000 pins are published above; each instance's own `metadata.generator.upstream_files` block additionally pins the sha256 of the exact upstream source files. The berlin and london pins at both sizes were additionally reproduced bit-identically by an independent conversion on a second machine.
 
 ## Conversion semantics (value-exact port)
 
