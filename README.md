@@ -6,7 +6,7 @@ Satellite benchmark repository of [MAMUT-routing](https://github.com/ANR-MAMUT/M
 
 ## Why this family
 
-The vrptdt-benchmark is the major modern reference for realistic time-dependent vehicle routing: travel times come from real road networks and measured speeds, not synthetic congestion profiles. It also carries a preservation argument: Uber Movement was shut down in 2023, so the published arrival-time matrices can no longer be reproduced from public sources and are the sole surviving artifact of that speed data. This conversion makes the family usable with the MAMUT-routing canonical format, checker and BKS machinery while keeping the original semantics bit-exact.
+The vrptdt-benchmark is the major modern reference for realistic time-dependent vehicle routing: travel times come from real road networks and measured speeds, not synthetic congestion profiles. It also carries a preservation argument: Uber Movement was [shut down on October 1, 2023](https://web.archive.org/web/20231012002321/https://www.uber.com/us/en/business/movement-decommissioning/) (Uber's own announcement survives only in the Internet Archive), so the published arrival-time matrices can no longer be reproduced from public sources and are the sole surviving artifact of that speed data. This conversion makes the family usable with the MAMUT-routing canonical format, checker and BKS machinery while keeping the original semantics bit-exact.
 
 Upstream: https://gitlab.com/muelleratorunibonnde/vrptdt-benchmark (converted at commit `45f8f57e4d643af5c4e7641e77c2aad197233dc2`), archived at bonndata DOI [10.60507/FK2/X22BKR](https://doi.org/10.60507/FK2/X22BKR). Paper: [Discrete Optimization 53 (2024), 100848](https://doi.org/10.1016/j.disopt.2024.100848).
 
