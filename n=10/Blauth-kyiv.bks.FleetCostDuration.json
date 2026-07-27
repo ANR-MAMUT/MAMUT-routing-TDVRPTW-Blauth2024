@@ -1,0 +1,18 @@
+{
+    "instance_name": "Blauth-kyiv",
+    "routes": [
+        [5, 1, 8, 9, 6, 2, 3, 4, 10, 7]
+    ],
+    "cost": 47077304.280384384,
+    "metadata": {
+        "authors": "Florian Rascoussier (0nyr)",
+        "source": "kayros 1.2.0 TD-ILS (seed=1010, time_limit=600.0s)",
+        "validated_by": "mamut-routing-lib td FleetCostDuration checker",
+        "date": "2026-07-27T14:41:21",
+        "validated_cost": 47077304.280384384,
+        "validated_num_routes": 1,
+        "route_durations": [11077304.280384384],
+        "route_departure_times": [58534587.39396732]
+    },
+    "objective_function": "FleetCostDuration"
+}

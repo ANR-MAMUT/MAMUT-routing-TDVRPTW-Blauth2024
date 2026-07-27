@@ -1,0 +1,18 @@
+{
+    "instance_name": "Blauth-madrid",
+    "routes": [
+        [8, 7, 9, 1, 2, 4, 10, 5, 6, 3]
+    ],
+    "cost": 47581745.67043442,
+    "metadata": {
+        "authors": "Florian Rascoussier (0nyr)",
+        "source": "kayros 1.2.0 TD-ILS (seed=1010, time_limit=600.0s)",
+        "validated_by": "mamut-routing-lib td FleetCostDuration checker",
+        "date": "2026-07-27T14:41:21",
+        "validated_cost": 47581745.67043442,
+        "validated_num_routes": 1,
+        "route_durations": [11581745.670434423],
+        "route_departure_times": [64468657.09529332]
+    },
+    "objective_function": "FleetCostDuration"
+}

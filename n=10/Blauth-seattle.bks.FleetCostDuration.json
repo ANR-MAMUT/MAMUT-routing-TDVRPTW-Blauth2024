@@ -1,0 +1,18 @@
+{
+    "instance_name": "Blauth-seattle",
+    "routes": [
+        [7, 5, 4, 8, 1, 9, 6, 3, 10, 2]
+    ],
+    "cost": 47621286.25443826,
+    "metadata": {
+        "authors": "Florian Rascoussier (0nyr)",
+        "source": "kayros 1.2.0 TD-ILS (seed=1010, time_limit=600.0s)",
+        "validated_by": "mamut-routing-lib td FleetCostDuration checker",
+        "date": "2026-07-27T14:41:21",
+        "validated_cost": 47621286.25443826,
+        "validated_num_routes": 1,
+        "route_durations": [11621286.254438259],
+        "route_departure_times": [59016193.904623516]
+    },
+    "objective_function": "FleetCostDuration"
+}
