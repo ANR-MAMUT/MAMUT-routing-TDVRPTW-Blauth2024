@@ -27,12 +27,14 @@ Best-known solutions are published under the `FleetCostDuration` objective: `cos
 
 BKS sidecars are named `<Name>.bks.FleetCostDuration.json`; costs are always the authoritative output of the canonical checker (`mamut_routing_lib.td.check_td_solution`, mamut-routing-lib >= 0.9.0, exact IEEE-754 arithmetic, no epsilons).
 
-## Hosting: n=10 and n=500 here, n=1000 and n=2000 by deterministic conversion
+## Hosting: n=10 and n=500 complete, n=1000 and n=2000 without the ATF sidecar
 
-GitHub file-size limits make the big sidecars unhostable (a single n=1000 ATF sidecar exceeds 100 MiB). The family is therefore hybrid:
+GitHub file-size limits make the big sidecars unhostable (a single n=1000 ATF sidecar exceeds 100 MiB gzipped; n=2000 sidecars reach 386 MiB). The family is therefore hybrid:
 
 - `n=10/` and `n=500/` ship complete: `<Name>.vrp.json` instance, `<Name>.atf.json.gz` canonical ATF sidecar (gzipped), and BKS sidecars.
-- `n=1000/` and `n=2000/` ship **best-known-solution files and sha256 pins only**. The instances are regenerated locally with the deterministic converter and verified against the pins below.
+- `n=1000/` and `n=2000/` ship the `<Name>.vrp.json` instance descriptors (locations, time windows, fleet, metadata, recorded `atf_sha256` pin), BKS sidecars, and the sha256 pins below; **only the oversized ATF sidecars are regenerated locally** with the deterministic converter and verified against the pins.
+
+Note that loading a big-size instance with `mamut_routing_lib.td.load_td_instance` fails with a missing-sidecar error until the ATF sidecar is materialized: run the converter below with `--output-dir` pointing at this repository's checkout (or copy the emitted `<Name>.atf.json.gz` next to the hosted `<Name>.vrp.json`). The emitted `.vrp.json` files are byte-identical to the hosted ones, and the sidecar is verified against the recorded `atf_sha256` on every load.
 
 To materialize the big sizes, clone the upstream repository at the pinned commit and run the converter from [MAMUT-routing-tools](https://github.com/ANR-MAMUT/MAMUT-routing-tools):
 

@@ -6,6 +6,8 @@ All notable changes to the `Blauth2024` best-known solutions (BKS) are recorded 
 
 **Family published.** 20 instances hosted (n=10 and n=500, ten cities each) plus sha256 pins for the converter-materialized n=1000/2000 tier. Later the same day the pin table was completed: all twenty n=1000/2000 pins are published in the README, with the berlin and london pins at both sizes reproduced bit-identically by an independent conversion on a second machine.
 
+**n=1000/2000 instance descriptors added.** The twenty big-size `<Name>.vrp.json` files (locations, time windows, fleet, metadata, recorded `atf_sha256` pin; under 200 KB each) are now hosted alongside their BKS sidecars, so only the oversized ATF sidecars remain converter-materialized. Each hosted descriptor's recorded pin matches the README table.
+
 **24 BKS records at publication:**
 
 - **14 imported reference solutions** (BonnTour high-effort mode, credited to Blauth, Held, Müller, Schlomberg, Traub, Tröbst and Vygen): all ten n=500 cities, plus berlin and london at n=1000 and n=2000. Import discipline: each upstream solution was re-evaluated with the pristine upstream evaluator's exact rational arithmetic (hard time windows, zero violations required), repriced by the canonical checker with per-route departure re-optimization (imported cost <= the upstream working-time cost at their published start times, gains of 49 to 173 ms at n=500), and cross-checked against the paper's published Table 2 values (each published dollar value is exactly the ceiling of the imported cost in dollars, fourteen for fourteen).
