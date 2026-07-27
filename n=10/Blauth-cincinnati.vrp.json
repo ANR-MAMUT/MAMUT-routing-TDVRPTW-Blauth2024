@@ -1,0 +1,75 @@
+{
+    "instance_name": "Blauth-cincinnati",
+    "instance_origin": "Blauth2024",
+    "benchmark_name": "Blauth2024",
+    "num_customers": 10,
+    "num_vehicles": null,
+    "vehicle_capacity": 10,
+    "coordinates": [
+        [-84.42893200155521, 39.10539700763241],
+        [-84.39911700866264, 38.98441000515461],
+        [-84.47916204021834, 39.28235475741314],
+        [-84.46230120161485, 39.35091294858907],
+        [-84.30025320938697, 39.291421596495006],
+        [-84.593729694731, 39.24371199889463],
+        [-84.33634610454423, 39.433388698875575],
+        [-84.60053096797209, 39.24370636920294],
+        [-84.51539539176005, 39.12814990825594],
+        [-84.33882626083563, 39.43352182022352],
+        [-84.33755662792598, 39.43561914382303]
+    ],
+    "demands": [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    "service_times": [0, 180000, 180000, 180000, 180000, 180000, 180000, 180000, 180000, 180000, 180000],
+    "depot": 0,
+    "horizon": [54000000, 79200000],
+    "fleet_fixed_cost": 36000000,
+    "time_windows": [
+        [54000000, 86400000],
+        [55800000, 75600000],
+        [55800000, 75600000],
+        [55800000, 75600000],
+        [55800000, 75600000],
+        [55800000, 75600000],
+        [55800000, 59400000],
+        [59400000, 63000000],
+        [72000000, 75600000],
+        [55800000, 75600000],
+        [55800000, 75600000]
+    ],
+    "td": {
+        "model": "atf-ndcpwlf",
+        "atf_path": "Blauth-cincinnati.atf.json.gz",
+        "atf_sha256": "941f650860fc6103cd3d76f61374058b3fec61ea1bc12d6d03d5a0f62bb9a86b"
+    },
+    "metadata": {
+        "authors": "Florian Rascoussier (0nyr)",
+        "generator": {
+            "name": "convert_blauth2024",
+            "version": "1",
+            "source": "vrptdt-benchmark (Blauth et al. 2024, delivery-only)",
+            "upstream_commit": "45f8f57e4d643af5c4e7641e77c2aad197233dc2",
+            "upstream_files": {
+                "cincinnati_10.json": "6f8f6d1170db21da42ef62f5543c1a1d6f9b956043c2a47a56b6ca6188e2fa39",
+                "cincinnati_10_tt.json.bz2": "dfefa0bd52097185272c48357aee5778d154747de587a39423c54b87e1a56617"
+            }
+        },
+        "time_unit": "millisecond",
+        "coordinates_convention": "[longitude, latitude], WGS84 degrees, informative only",
+        "objective": {
+            "function": "FleetCostDuration",
+            "fleet_fixed_cost_ms": 36000000,
+            "dollar_mapping": "upstream cost in $ = cost_ms / 180000 ($200 per vehicle + $20 per hour)"
+        },
+        "depot_due_date": {
+            "value": 86400000,
+            "rationale": "upstream imposes no return deadline; midnight is provably non-binding: no feasible departure exists after 21:03 (latest TW end 21:00 + 3 min service), and every return arc evaluated exactly at 21:03 arrives before midnight (exact-rational gate at conversion). Note max_arc_arrival may exceed midnight inside the semantically dead post-21:03 region (constant-travel domain extensions).",
+            "max_arc_arrival": 83097068,
+            "max_feasible_return_ceil": 78446200
+        },
+        "tw_semantics": "service begins within the time window (arrival after waiting <= latest); hard TWs",
+        "co_located_arcs": 0,
+        "domain_extended_arcs": 0,
+        "distances_channel": "upstream atf_dist_end_time/atf_distance (fastest-path meters per departure range) is not carried into the ATF sidecar; see the upstream files pinned in generator",
+        "license": "CC-BY-NC-4.0 (OSM ODbL + Uber Movement speed data lineage)"
+    }
+}

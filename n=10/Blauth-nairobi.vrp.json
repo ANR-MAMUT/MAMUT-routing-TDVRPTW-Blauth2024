@@ -1,0 +1,75 @@
+{
+    "instance_name": "Blauth-nairobi",
+    "instance_origin": "Blauth2024",
+    "benchmark_name": "Blauth2024",
+    "num_customers": 10,
+    "num_vehicles": null,
+    "vehicle_capacity": 10,
+    "coordinates": [
+        [36.81259289624377, -1.3174683997203833],
+        [36.88330183357694, -1.2410189628387227],
+        [36.883410199154746, -1.2465654075073858],
+        [36.71827932892222, -1.3197944295303339],
+        [36.87524776101702, -1.2549431636170145],
+        [36.77686324250106, -1.3123912300356038],
+        [36.71787841800065, -1.3271523877857843],
+        [36.87103788474205, -1.3173952818128414],
+        [36.798902880102005, -1.2945155591075066],
+        [36.849518365378344, -1.2625734555205328],
+        [36.803652694189616, -1.2571662004299995]
+    ],
+    "demands": [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    "service_times": [0, 180000, 180000, 180000, 180000, 180000, 180000, 180000, 180000, 180000, 180000],
+    "depot": 0,
+    "horizon": [54000000, 79200000],
+    "fleet_fixed_cost": 36000000,
+    "time_windows": [
+        [54000000, 86400000],
+        [57600000, 61200000],
+        [57600000, 61200000],
+        [55800000, 75600000],
+        [55800000, 75600000],
+        [70200000, 73800000],
+        [66600000, 70200000],
+        [72000000, 75600000],
+        [55800000, 75600000],
+        [55800000, 75600000],
+        [55800000, 75600000]
+    ],
+    "td": {
+        "model": "atf-ndcpwlf",
+        "atf_path": "Blauth-nairobi.atf.json.gz",
+        "atf_sha256": "88b26f07708b5320f7b137630ee74b5412c2c8c7b014c21650c33021030d8ea9"
+    },
+    "metadata": {
+        "authors": "Florian Rascoussier (0nyr)",
+        "generator": {
+            "name": "convert_blauth2024",
+            "version": "1",
+            "source": "vrptdt-benchmark (Blauth et al. 2024, delivery-only)",
+            "upstream_commit": "45f8f57e4d643af5c4e7641e77c2aad197233dc2",
+            "upstream_files": {
+                "nairobi_10.json": "ef24abb50cd92706d1d298289bd65952c864af492b6f59d992f16c01f60e2e02",
+                "nairobi_10_tt.json.bz2": "a7b1413c1bda56bca866b84eccfed4c916b128d17e0dfa97128d8801b2224a93"
+            }
+        },
+        "time_unit": "millisecond",
+        "coordinates_convention": "[longitude, latitude], WGS84 degrees, informative only",
+        "objective": {
+            "function": "FleetCostDuration",
+            "fleet_fixed_cost_ms": 36000000,
+            "dollar_mapping": "upstream cost in $ = cost_ms / 180000 ($200 per vehicle + $20 per hour)"
+        },
+        "depot_due_date": {
+            "value": 86400000,
+            "rationale": "upstream imposes no return deadline; midnight is provably non-binding: no feasible departure exists after 21:03 (latest TW end 21:00 + 3 min service), and every return arc evaluated exactly at 21:03 arrives before midnight (exact-rational gate at conversion). Note max_arc_arrival may exceed midnight inside the semantically dead post-21:03 region (constant-travel domain extensions).",
+            "max_arc_arrival": 81196397,
+            "max_feasible_return_ceil": 76936254
+        },
+        "tw_semantics": "service begins within the time window (arrival after waiting <= latest); hard TWs",
+        "co_located_arcs": 0,
+        "domain_extended_arcs": 0,
+        "distances_channel": "upstream atf_dist_end_time/atf_distance (fastest-path meters per departure range) is not carried into the ATF sidecar; see the upstream files pinned in generator",
+        "license": "CC-BY-NC-4.0 (OSM ODbL + Uber Movement speed data lineage)"
+    }
+}

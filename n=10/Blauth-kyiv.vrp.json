@@ -1,0 +1,75 @@
+{
+    "instance_name": "Blauth-kyiv",
+    "instance_origin": "Blauth2024",
+    "benchmark_name": "Blauth2024",
+    "num_customers": 10,
+    "num_vehicles": null,
+    "vehicle_capacity": 10,
+    "coordinates": [
+        [30.452681574797086, 50.44645726662663],
+        [30.521784108227568, 50.41276130153795],
+        [30.765751427334607, 50.49812051578264],
+        [30.588449047888947, 50.46009011855987],
+        [30.517242124346335, 50.46555376811263],
+        [30.50380631742559, 50.427400412200754],
+        [30.556669912154607, 50.363455431702526],
+        [30.44997530329687, 50.482392895921684],
+        [30.504371891316598, 50.39611854330989],
+        [30.371238935683454, 50.37185719558396],
+        [30.42542014950701, 50.44718760437581]
+    ],
+    "demands": [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    "service_times": [0, 180000, 180000, 180000, 180000, 180000, 180000, 180000, 180000, 180000, 180000],
+    "depot": 0,
+    "horizon": [54000000, 79200000],
+    "fleet_fixed_cost": 36000000,
+    "time_windows": [
+        [54000000, 86400000],
+        [55800000, 75600000],
+        [61200000, 64800000],
+        [55800000, 75600000],
+        [55800000, 75600000],
+        [55800000, 75600000],
+        [55800000, 75600000],
+        [68400000, 72000000],
+        [57600000, 61200000],
+        [55800000, 75600000],
+        [55800000, 75600000]
+    ],
+    "td": {
+        "model": "atf-ndcpwlf",
+        "atf_path": "Blauth-kyiv.atf.json.gz",
+        "atf_sha256": "3f94fe8fd00dc9d89a5fbd45559a67d5f117891a243619f064b39707d25c18e5"
+    },
+    "metadata": {
+        "authors": "Florian Rascoussier (0nyr)",
+        "generator": {
+            "name": "convert_blauth2024",
+            "version": "1",
+            "source": "vrptdt-benchmark (Blauth et al. 2024, delivery-only)",
+            "upstream_commit": "45f8f57e4d643af5c4e7641e77c2aad197233dc2",
+            "upstream_files": {
+                "kyiv_10.json": "0057b02b0b3314e242dd5d4c6cb0df6cb7222ff8d7ea657ff238ae9c2c1d5b2d",
+                "kyiv_10_tt.json.bz2": "7789c5d318b8f2203ef3cfe89951266cadbc56dd50979d94f148ea882f445c3c"
+            }
+        },
+        "time_unit": "millisecond",
+        "coordinates_convention": "[longitude, latitude], WGS84 degrees, informative only",
+        "objective": {
+            "function": "FleetCostDuration",
+            "fleet_fixed_cost_ms": 36000000,
+            "dollar_mapping": "upstream cost in $ = cost_ms / 180000 ($200 per vehicle + $20 per hour)"
+        },
+        "depot_due_date": {
+            "value": 86400000,
+            "rationale": "upstream imposes no return deadline; midnight is provably non-binding: no feasible departure exists after 21:03 (latest TW end 21:00 + 3 min service), and every return arc evaluated exactly at 21:03 arrives before midnight (exact-rational gate at conversion). Note max_arc_arrival may exceed midnight inside the semantically dead post-21:03 region (constant-travel domain extensions).",
+            "max_arc_arrival": 81423721,
+            "max_feasible_return_ceil": 77508769
+        },
+        "tw_semantics": "service begins within the time window (arrival after waiting <= latest); hard TWs",
+        "co_located_arcs": 0,
+        "domain_extended_arcs": 0,
+        "distances_channel": "upstream atf_dist_end_time/atf_distance (fastest-path meters per departure range) is not carried into the ATF sidecar; see the upstream files pinned in generator",
+        "license": "CC-BY-NC-4.0 (OSM ODbL + Uber Movement speed data lineage)"
+    }
+}

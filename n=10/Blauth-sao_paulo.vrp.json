@@ -1,0 +1,75 @@
+{
+    "instance_name": "Blauth-sao_paulo",
+    "instance_origin": "Blauth2024",
+    "benchmark_name": "Blauth2024",
+    "num_customers": 10,
+    "num_vehicles": null,
+    "vehicle_capacity": 10,
+    "coordinates": [
+        [-46.66370708399293, -23.631155684103327],
+        [-46.642354714625085, -23.548001140776464],
+        [-46.581805395563336, -23.494899097326332],
+        [-46.61760098217407, -23.555535623176432],
+        [-46.69673999256987, -23.56812080161934],
+        [-46.617387000231794, -23.550353907685],
+        [-46.557462358513604, -23.57377437747097],
+        [-46.60292135980831, -23.530826561948945],
+        [-46.64285375620096, -23.575722930465847],
+        [-46.62009523971048, -23.537983563207497],
+        [-46.58062578689746, -23.72209147362892]
+    ],
+    "demands": [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    "service_times": [0, 180000, 180000, 180000, 180000, 180000, 180000, 180000, 180000, 180000, 180000],
+    "depot": 0,
+    "horizon": [54000000, 79200000],
+    "fleet_fixed_cost": 36000000,
+    "time_windows": [
+        [54000000, 86400000],
+        [66600000, 70200000],
+        [59400000, 63000000],
+        [55800000, 75600000],
+        [55800000, 75600000],
+        [55800000, 75600000],
+        [55800000, 75600000],
+        [63000000, 66600000],
+        [59400000, 63000000],
+        [55800000, 75600000],
+        [55800000, 75600000]
+    ],
+    "td": {
+        "model": "atf-ndcpwlf",
+        "atf_path": "Blauth-sao_paulo.atf.json.gz",
+        "atf_sha256": "cf8f67e6ca81198f33f6a649d02bd5a87fa1b596063b2987f7ee54b8c7d30c7d"
+    },
+    "metadata": {
+        "authors": "Florian Rascoussier (0nyr)",
+        "generator": {
+            "name": "convert_blauth2024",
+            "version": "1",
+            "source": "vrptdt-benchmark (Blauth et al. 2024, delivery-only)",
+            "upstream_commit": "45f8f57e4d643af5c4e7641e77c2aad197233dc2",
+            "upstream_files": {
+                "sao_paulo_10.json": "ecda50cb5984dbeffb0fcf9023e9ab6f5205797378d0a54fb440dd1c25d32677",
+                "sao_paulo_10_tt.json.bz2": "309305a8b62439c034e40e6b748df6d0b1611180eaca2ffe80e72cf50f16e7ab"
+            }
+        },
+        "time_unit": "millisecond",
+        "coordinates_convention": "[longitude, latitude], WGS84 degrees, informative only",
+        "objective": {
+            "function": "FleetCostDuration",
+            "fleet_fixed_cost_ms": 36000000,
+            "dollar_mapping": "upstream cost in $ = cost_ms / 180000 ($200 per vehicle + $20 per hour)"
+        },
+        "depot_due_date": {
+            "value": 86400000,
+            "rationale": "upstream imposes no return deadline; midnight is provably non-binding: no feasible departure exists after 21:03 (latest TW end 21:00 + 3 min service), and every return arc evaluated exactly at 21:03 arrives before midnight (exact-rational gate at conversion). Note max_arc_arrival may exceed midnight inside the semantically dead post-21:03 region (constant-travel domain extensions).",
+            "max_arc_arrival": 81919294,
+            "max_feasible_return_ceil": 77783268
+        },
+        "tw_semantics": "service begins within the time window (arrival after waiting <= latest); hard TWs",
+        "co_located_arcs": 0,
+        "domain_extended_arcs": 0,
+        "distances_channel": "upstream atf_dist_end_time/atf_distance (fastest-path meters per departure range) is not carried into the ATF sidecar; see the upstream files pinned in generator",
+        "license": "CC-BY-NC-4.0 (OSM ODbL + Uber Movement speed data lineage)"
+    }
+}

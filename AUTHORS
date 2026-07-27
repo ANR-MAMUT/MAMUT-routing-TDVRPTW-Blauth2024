@@ -1,0 +1,9 @@
+# Authors of the MAMUT-routing Blauth2024 family conversion and curation
+
+Florian Rascoussier (Onyr) <onyr.maintainer@gmail.com>
+
+# Underlying benchmark data
+
+The instances derive from the vrptdt-benchmark by Jannis Blauth, Stephan Held,
+Dirk Müller, Niklas Schlomberg, Vera Traub, Thorben Tröbst and Jens Vygen
+(University of Bonn). See LICENSE for the full attribution block.
