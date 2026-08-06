@@ -2,6 +2,10 @@
 
 All notable changes to the `Blauth2024` best-known solutions (BKS) are recorded here. Objective: **FleetCostDuration** (sum of per-route optimal durations plus `36000000 ms` per route; the depot departure time of each route is a decision variable). Costs are the authoritative output of the canonical checker (`mamut_routing_lib.td.check_td_solution`, mamut-routing-lib >= 0.9.0): exact IEEE-754 double arithmetic, no epsilon thresholds, routes in canonical order, total summed in that order, so any strict improvement is real. The upstream dollar objective is recovered exactly as `$ = cost_ms / 180000`.
 
+## 2026-08-06
+
+**All ten n=500 BKS improved by warm-started refinement ([kayros](https://pypi.org/project/kayros/) 1.5.0 TD-ILS).** Each search was warm-started from the previously stored best known solution (the BonnTour reference on seven cities, the prior kayros records on london, nairobi and new_york) and run for 12 h on one core; each record carries `"warm_start": true` in its metadata. Every incumbent was re-validated by the canonical checker; route counts are unchanged on all ten cities. Improvements: berlin -0.056 %, cincinnati -0.089 %, kyiv -0.033 %, madrid -0.027 %, san_francisco -0.043 %, sao_paulo -0.083 %, seattle -0.092 % (the seven cities previously holding the BonnTour high-effort references, which now serve as their warm starts), london -0.553 %, nairobi -0.925 %, new_york -0.634 %. With these, kayros holds all ten n=500 records; the BonnTour references remain credited in each superseded record's lineage above and stand unbeaten at n=1000 and n=2000.
+
 ## 2026-07-27
 
 **Family published.** 20 instances hosted (n=10 and n=500, ten cities each) plus sha256 pins for the converter-materialized n=1000/2000 tier. Later the same day the pin table was completed: all twenty n=1000/2000 pins are published in the README, with the berlin and london pins at both sizes reproduced bit-identically by an independent conversion on a second machine.
