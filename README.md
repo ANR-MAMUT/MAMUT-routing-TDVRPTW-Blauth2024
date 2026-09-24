@@ -25,7 +25,7 @@ The upstream project also publishes a pickup-and-delivery variant of every insta
 
 Best-known solutions are published under the `FleetCostDuration` objective: `cost = sum of route durations + F * K` with K the number of routes and `F = fleet_fixed_cost = 36000000 ms` (10 hours) carried by each instance. Route durations are the canonical checker's per-route optimal durations (each route's depot departure time is a decision variable, exactly as in the `Duration` objective). This reproduces the upstream dollar objective ($200 per vehicle plus $20 per working hour) exactly: **cost in $ = cost_ms / 180000**. All breakpoints are integer milliseconds, so checker costs are exact.
 
-BKS sidecars are named `<Name>.bks.FleetCostDuration.json`; costs are always the authoritative output of the canonical checker (`mamut_routing_lib.td.check_td_solution`, mamut-routing-lib >= 0.9.0, exact IEEE-754 arithmetic, no epsilons).
+BKS sidecars are named `<Name>.bks.FleetCostDuration.json`; costs are always the authoritative output of the canonical checker (`mamut_routing_lib.td.check_td_solution`, mamut-routing-lib >= 0.12.0, checker contract `td-fold/2`, exact IEEE-754 arithmetic, no epsilons).
 
 ## Hosting: n=10 and n=500 complete, n=1000 and n=2000 without the ATF sidecar
 

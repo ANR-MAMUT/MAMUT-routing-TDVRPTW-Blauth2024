@@ -1,6 +1,10 @@
 # Changelog — Blauth2024 TDVRPTW BKS
 
-All notable changes to the `Blauth2024` best-known solutions (BKS) are recorded here. Objective: **FleetCostDuration** (sum of per-route optimal durations plus `36000000 ms` per route; the depot departure time of each route is a decision variable). Costs are the authoritative output of the canonical checker (`mamut_routing_lib.td.check_td_solution`, mamut-routing-lib >= 0.9.0): exact IEEE-754 double arithmetic, no epsilon thresholds, routes in canonical order, total summed in that order, so any strict improvement is real. The upstream dollar objective is recovered exactly as `$ = cost_ms / 180000`.
+All notable changes to the `Blauth2024` best-known solutions (BKS) are recorded here. Objective: **FleetCostDuration** (sum of per-route optimal durations plus `36000000 ms` per route; the depot departure time of each route is a decision variable). Costs are the authoritative output of the canonical checker (`mamut_routing_lib.td.check_td_solution`, mamut-routing-lib >= 0.12.0, checker contract `td-fold/2`): exact IEEE-754 double arithmetic, no epsilon thresholds, routes in canonical order, total summed in that order, so any strict improvement is real. The upstream dollar objective is recovered exactly as `$ = cost_ms / 180000`.
+
+## 2026-09-24
+
+**Checked under the `td-fold/2` checker contract (mamut-routing-lib 0.12.0): n=10 and n=500 unchanged, n=1000 and n=2000 pending.** mamut-routing-lib 0.12.0 replaces the TD checker's route fold (checker contract `td-fold/1` -> `td-fold/2`): waiting and service at a vertex are now applied exactly to the accumulated arrival times instead of being composed through a ratio interpolation, and travel on slope-one pieces is computed by addition. `mamut-routing bks reprice-td` re-priced the twenty n=10 and n=500 BKS against their committed ATF sidecars: every cost, route duration and departure time is bit-identical under the new contract, and no file changed. The twenty n=1000 and n=2000 BKS could not be re-priced because their ATF sidecars are not hosted (see Hosting in README.md): they keep their `td-fold/1` values until the sidecars are next materialized and `mamut-routing bks reprice-td` is run on them, and any move will be recorded here. The checker requirement is now mamut-routing-lib >= 0.12.0.
 
 ## 2026-08-10
 
