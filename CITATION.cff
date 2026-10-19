@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+title: MAMUT-routing-TDVRPTW-Blauth2024
+type: dataset
+message: >-
+  Cite this metadata for the MAMUT-routing conversion, validation and reference-solution publication of Blauth2024. Cite Blauth et al. (2024) and the upstream dataset for the original benchmark, and retain the geographic and traffic-data attributions specified in LICENSE. Record the exact Git commit used.
+authors:
+  - given-names: Adrien
+    family-names: Pichon
+    alias: Anzury
+    affiliation: Université Bretagne Sud
+    orcid: "https://orcid.org/0009-0005-8630-3962"
+  - given-names: Florian
+    family-names: Rascoussier
+    alias: Onyr
+    affiliation: IMT Atlantique; INSA Lyon
+    orcid: "https://orcid.org/0009-0005-3253-9814"
+  - given-names: Romain
+    family-names: Billot
+    affiliation: IMT Atlantique; Lab-STICC
+    orcid: "https://orcid.org/0000-0002-2614-3822"
+  - given-names: Lina
+    family-names: Fahed
+    affiliation: IMT Atlantique; Lab-STICC
+    orcid: "https://orcid.org/0000-0002-7207-0580"
+  - given-names: Alexandru-Liviu
+    family-names: Olteanu
+    affiliation: Université Bretagne Sud; Lab-STICC
+    orcid: "https://orcid.org/0000-0002-0715-2168"
+  - given-names: Marc
+    family-names: Sevaux
+    affiliation: Université Bretagne Sud; Lab-STICC
+    orcid: "https://orcid.org/0000-0003-3855-9072"
+  - given-names: Christine
+    family-names: Solnon
+    affiliation: INSA Lyon; Inria; CITI
+    orcid: "https://orcid.org/0000-0002-0919-496X"
+repository-code: "https://github.com/ANR-MAMUT/MAMUT-routing-TDVRPTW-Blauth2024"
+url: "https://github.com/ANR-MAMUT/MAMUT-routing-TDVRPTW-Blauth2024"
+abstract: >-
+  This repository provides a MAMUT-routing conversion of the delivery-only benchmark of Blauth, Held, Müller, Schlomberg, Traub, Tröbst and Vygen (2024). The listed authors contribute conversion to the platform format, validation of travel-time and objective semantics, integration of upstream reference solutions and publication of additional solver results. The original benchmark design and instance data belong to the upstream authors. OpenStreetMap, Uber Movement and upstream publication and dataset attributions are documented in README.md and LICENSE.

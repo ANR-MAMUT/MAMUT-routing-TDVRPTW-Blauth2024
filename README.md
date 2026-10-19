@@ -87,3 +87,9 @@ The converter performs a pure integer relabeling of the upstream data; no numeri
 - **n=10**: upstream publishes no solutions at this size, so these entries are the first published results for the tier.
 
 See `CHANGELOG.md` for the BKS history.
+
+## Citation and benchmark authorship
+
+The authors, in citation order, are Adrien Pichon, Florian Rascoussier, Romain Billot, Lina Fahed, Alexandru-Liviu Olteanu, Marc Sevaux and Christine Solnon. The 2 lead authors are ordered alphabetically by surname, followed by the scientific supervisors in alphabetical order. Their ORCID identifiers are recorded in [CITATION.cff](CITATION.cff).
+
+The listed authors contribute the conversion of the delivery-only Blauth2024 instances to the MAMUT-routing format, validation of their travel-time and objective semantics, integration of upstream reference solutions, and publication of additional solver results. Cite this repository for those contributions. Cite Blauth, Held, Müller, Schlomberg, Traub, Tröbst and Vygen (2024) and their upstream dataset for the original benchmark design and instances. Retain the OpenStreetMap and Uber Movement attributions and the license terms specified in [LICENSE](LICENSE). Individual solution-contributor credits are recorded with the solutions. Record the exact Git commit used in experiments.
